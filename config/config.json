@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "employmanagement-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/employmanagement/EmploymanagementWebPart.js",
+          "manifest": "./src/webparts/employmanagement/EmploymanagementWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "EmploymanagementWebPartStrings": "lib/webparts/employmanagement/loc/{locale}.js"
+  }
+}

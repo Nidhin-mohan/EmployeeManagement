@@ -1,0 +1,21 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "nodeVersion": "16.18.0",
+    "sdksVersions": {
+      "@microsoft/microsoft-graph-client": "3.0.2",
+      "@microsoft/teams-js": "2.4.1"
+    },
+    "version": "1.16.1",
+    "libraryName": "employ-management",
+    "libraryId": "88e59c32-e4b0-43c8-bd4a-c624e42fc8cc",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "EmployManagement",
+    "solutionShortDescription": "EmployManagement description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}
