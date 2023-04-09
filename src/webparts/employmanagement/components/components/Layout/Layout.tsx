@@ -9,9 +9,9 @@ type LayoutProps = {
 
 const Layout = ({ children }: LayoutProps): JSX.Element => {
   return (
-    <div>
+    <div  className="background-color: black">
       <Navbar />
-      <main className="">
+      <main>
         {children}
       </main>
     </div>

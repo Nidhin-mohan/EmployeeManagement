@@ -188,3 +188,38 @@ nav {
     }
   }
 }
+
+
+.profileContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.profileHeader {
+  margin-bottom: 16px;
+}
+
+.profileId {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.employeeDetailsContainer {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.employeeDetailsLabel {
+  margin-bottom: 16px;
+  font-weight: bold;
+}
+
+.employeeDetailsValue {
+  margin-bottom: 16px;
+}
+
+.employeeDetailsImage{
+  padding: 2px;
+}
