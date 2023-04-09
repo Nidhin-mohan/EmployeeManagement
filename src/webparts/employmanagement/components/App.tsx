@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom'
 import Home from './components/Home';
 import AddEmployee from './components/AddEmployee';
 import Profile from './components/Profile';
+import AddImage from './components/AddImage';
 
 
 const App: React.FC = () => {
@@ -13,6 +14,7 @@ const App: React.FC = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/add-emplyee" element={<AddEmployee />} />
+      <Route path="/add-emplyee/image/:id" element={<AddImage />} />
       <Route path="/profile/:id" element={<Profile />} />
     </Routes>
    </>

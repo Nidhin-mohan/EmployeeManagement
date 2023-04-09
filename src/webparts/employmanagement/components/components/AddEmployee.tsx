@@ -60,7 +60,7 @@ const AddEmployee: React.FC<AddEmployeeProps> = () => {
  .catch((error) => {
   console.error(`Error creating folder: ${error}`);
  });
-    navigate('/');
+    navigate(`/add-emplyee/image/${folderName}`);
   };
 
   return (
