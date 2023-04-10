@@ -13,6 +13,7 @@ interface IFileUploadProps {}
 
 const AddImage: React.FC<IFileUploadProps> = () => {
     const { id } = useParams<{ id: string }>();
+    const emplyeeId = parseInt(id)
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
   const navigate = useNavigate();
@@ -30,7 +31,7 @@ const AddImage: React.FC<IFileUploadProps> = () => {
     }
 
     const documentLibraryName = `EmployeeLibrary/${id}`;
-    const fileNamePath = encodeURI(selectedFile.name);
+    const fileNamePath = "Profile Image";
 
     let result: any;
     if (selectedFile.size <= 10485760) {
@@ -38,6 +39,7 @@ const AddImage: React.FC<IFileUploadProps> = () => {
        
       // small upload
       result = await sp.web.getFolderByServerRelativePath(documentLibraryName).files.addUsingPath(fileNamePath, selectedFile, { Overwrite: true });
+      console.log("url test",result.data.serverRelativeUrl)
     } else {
       // large upload
       result = await sp.web.getFolderByServerRelativePath(documentLibraryName).files.addChunked(fileNamePath, selectedFile, data => {
@@ -45,7 +47,15 @@ const AddImage: React.FC<IFileUploadProps> = () => {
       }, true);
     }
 
-    console.log(`Result of file upload: ${JSON.stringify(result)}`);
+    // console.log(`Result of file upload: ${JSON.stringify(result)}`);
+    // console.log("url test",result.data.ServerRelativeUrl)
+    const url = result.data.ServerRelativeUrl   
+    const list = sp.web.lists.getByTitle("Employees");
+   console.log(emplyeeId)
+  list.items.getById(emplyeeId).update({
+     Image_url:url
+   });
+
     navigate(`/`);
   };
 

@@ -6,6 +6,7 @@ import Home from './components/Home';
 import AddEmployee from './components/AddEmployee';
 import Profile from './components/Profile';
 import AddImage from './components/AddImage';
+import SharePointImage from './Image';
 
 
 const App: React.FC = () => {
@@ -16,6 +17,8 @@ const App: React.FC = () => {
       <Route path="/add-emplyee" element={<AddEmployee />} />
       <Route path="/add-emplyee/image/:id" element={<AddImage />} />
       <Route path="/profile/:id" element={<Profile />} />
+      <Route path="/image" element={<SharePointImage />} />
+
     </Routes>
    </>
   )

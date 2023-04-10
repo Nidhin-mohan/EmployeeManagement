@@ -65,18 +65,18 @@ const AddEmployee: React.FC<AddEmployeeProps> = () => {
 
   return (
     <Layout>
-    <div className="add-employee-container">
+    <div className={styles.addEmployeeContainer}>
       <h1>Add Employee</h1>
-      <form className={styles.formgroup} onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="name"> Name:</label>
+      <form className={styles.formGroup} onSubmit={handleSubmit}>
+        <div className={styles.formInput}>
+          <label htmlFor="name">Name:</label>
           <input type="text" name="name" id="name" value={name} onChange={(e) => setName(e.target.value)} />
         </div>
-        <div className="form-group">
+        <div className={styles.formInput}>
           <label htmlFor="email">Email:</label>
           <input type="email" name="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
         </div>
-        <div className="form-group">
+        <div className={styles.formInput}>
           <label htmlFor="gender">Gender:</label>
           <select name="gender" id="gender" value={gender} onChange={(e) => setGender(e.target.value)}>
             <option value=""></option>
@@ -85,28 +85,29 @@ const AddEmployee: React.FC<AddEmployeeProps> = () => {
             <option value="Other">Other</option>
           </select>
         </div>
-        <div className="form-group">
+        <div className={styles.formInput}>
           <label htmlFor="designation">Designation:</label>
           <input type="text" name="designation" id="designation" value={designation} onChange={(e) => setDesignation(e.target.value)} />
         </div>
-        <div className="form-group">
+        <div className={styles.formInput}>
           <label htmlFor="phone_no">Phone Number:</label>
           <input type="text" name="phone_no" id="phone_no" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
         </div>
-        <div className="form-group">
+        <div className={styles.formInput}>
           <label htmlFor="city">City:</label>
           <input type="text" name="city" id="city" value={city} onChange={(e) => setCity(e.target.value)} />
         </div>
-        <div className="form-group">
+        <div className={styles.formInput}>
           <label htmlFor="date_of_birth">Date of Birth:</label>
           <input type="date" name="date_of_birth" id="date_of_birth" value={dateOfBirth} onChange={(e) => setDateOfBirth(e.target.value)} />
         </div>
-        <div className="form-group">
+        <div className={styles.formButton}>
           <button type="submit">Add Employee</button>
         </div>
       </form>
     </div>
   </Layout>
+  
   );
 };
 
