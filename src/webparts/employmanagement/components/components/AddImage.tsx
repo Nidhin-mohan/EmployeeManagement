@@ -8,6 +8,7 @@ import "@pnp/sp/files";
 import "@pnp/sp/folders";
 import { sp } from '../spAuth';
 import Layout from './Layout/Layout';
+import styles from '../Employmanagement.module.scss';
 
 interface IFileUploadProps {}
 
@@ -61,16 +62,17 @@ const AddImage: React.FC<IFileUploadProps> = () => {
 
   return (
     <Layout>
-    <div>
+   <div className={styles.uploadcontainer}>
       <input type="file" onChange={handleFileInputChange} />
       <button onClick={handleUploadClick}>Upload</button>
       {selectedFile && (
-        <div>
+        <div className={styles['selected-file']}>
           <p>Selected file: {selectedFile.name}</p>
           <img src={URL.createObjectURL(selectedFile)} alt="Selected file preview" />
         </div>
       )}
     </div>
+
   </Layout>
   );
 };
