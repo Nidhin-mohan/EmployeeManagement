@@ -16,6 +16,7 @@ const Profile: React.FC<IProfileProps> = () => {
   const [phoneNumber, setPhoneNumber] = useState<string>('');
   const [city, setCity] = useState<string>('');
   const [dateOfBirth, setDateOfBirth] = useState<string>('');
+  const [image_url, setImage_url] = useState<string>('');
   const { id } = useParams<{ id: string }>();
   const profileId = parseInt(id);
   const navigate = useNavigate();
@@ -27,7 +28,19 @@ const Profile: React.FC<IProfileProps> = () => {
     try {
       await sp.web.lists.getByTitle('Employees').items.getById(itemId).delete();
       console.log(`Item with ID ${id} has been deleted from UsersList`);
+  // deleting folder 
+  await sp.web.rootFolder.folders.getByUrl("EmployeeLibrary/folderName").delete()
+        .then(() => {
+          console.log("Folder deleted successfully!");
+        })
+        .catch((error) => {
+          console.log(`Error deleting folder: ${error}`);
+        });
+
+
       navigate(`/`);
+
+
     } catch (error) {
       console.error(error);
     }
@@ -47,14 +60,33 @@ const Profile: React.FC<IProfileProps> = () => {
       setDesignation(item.designation);
       setEmail(item.email);
       setName(item.name);
+      setImage_url(item.Image_url)
+      console.log(image_url)
     })();
   });
 
+  const handleProfileClick = () => {
+    navigate(`/profile/${id}`);
+  };
+
+  const handleDocumentsClick = () => {
+    navigate(`/profile/documents`);
+  };
+
   return (
     <Layout>
+      <div className={styles.profileNav}>
+      <button className='profile' onClick={handleProfileClick}>
+        Profile
+      </button>
+      <button className='documents' onClick={handleDocumentsClick}>
+        Documents
+      </button>
+    </div>
+
       <div className={styles.container}>
         <div className={styles.left}>
-          <img src="" alt="Employee Picture" />
+          <img src={`${image_url}`} alt="Employee Picture" />
           <h1>{name}</h1>
           <p>Email: {email}</p>
         </div>

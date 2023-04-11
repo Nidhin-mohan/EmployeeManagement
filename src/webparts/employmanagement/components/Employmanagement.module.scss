@@ -193,7 +193,7 @@ nav {
 
 
 
-
+// profile
 .container {
   display: flex;
   justify-content: center ;
@@ -206,6 +206,12 @@ nav {
 
 .left {
   width: 30%;
+}
+
+.left img {
+  width: 200px;
+  border-radius: 10px ;
+
 }
 
 .right {
@@ -361,4 +367,25 @@ button:hover {
   border-radius: 6px;
   margin: 20px;
 
+}
+
+// profile nav
+
+
+.profileNav{
+  display: flex;
+  margin-left: 30px;
+  align-items: center;
+  /* justify-content: center; */
+
+}
+
+.profileNav button {
+  width: 200px;
+  background-color: #4088db;
+  color: #000000;
+  padding: 10px;
+  border: none;
+  font-size: 20px;
+  margin: 2px;
 }
