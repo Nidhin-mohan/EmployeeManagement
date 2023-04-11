@@ -37,8 +37,10 @@ const EmployeeContextProvider = ({ children }: EmployeeContextProviderProps) => 
         phone_number: item.phone_number,
         city: item.city,
         date_of_birth: item.date_of_birth,
+        image_url : item.Image_url,
       }));
       setEmployees(newEmployees);
+      console.log(`employees ${employees}`)
     })();
   }, []);
 

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Layout from './Layout/Layout';
 import { sp } from '../spAuth';
 import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import styles from '../Employmanagement.module.scss';
 
 interface IProfileProps {}
@@ -17,6 +18,21 @@ const Profile: React.FC<IProfileProps> = () => {
   const [dateOfBirth, setDateOfBirth] = useState<string>('');
   const { id } = useParams<{ id: string }>();
   const profileId = parseInt(id);
+  const navigate = useNavigate();
+
+
+  const handleDelete = async (id: string) => {
+    console.log(id);
+    const itemId = Number(id);
+    try {
+      await sp.web.lists.getByTitle('Employees').items.getById(itemId).delete();
+      console.log(`Item with ID ${id} has been deleted from UsersList`);
+      navigate(`/`);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
 
   React.useEffect(() => {
     // get a specific item by id.
@@ -62,6 +78,10 @@ const Profile: React.FC<IProfileProps> = () => {
           <div className={styles.infoSection}>
             <h2>Date of Birth:</h2>
             <p>{dateOfBirth}</p>
+          </div>
+          <div className={styles.profileHandles}>
+             <button className={styles.update}  >Update</button>
+             <button className={styles.delete}  onClick={() => handleDelete(id)} >delete</button>
           </div>
         </div>
       </div>

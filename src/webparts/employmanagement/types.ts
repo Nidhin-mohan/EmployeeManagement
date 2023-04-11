@@ -7,5 +7,6 @@ export interface IEmployee  {
     phone_number?: string;
     city?: string;
     date_of_birth?: string;
+    image_url?: string;
   }
   

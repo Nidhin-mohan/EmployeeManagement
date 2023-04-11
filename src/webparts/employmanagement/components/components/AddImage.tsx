@@ -32,15 +32,19 @@ const AddImage: React.FC<IFileUploadProps> = () => {
     }
 
     const documentLibraryName = `EmployeeLibrary/${id}`;
-    const fileNamePath = "Profile Image";
+    const fileNamePath = `profilepic.png`;
 
     let result: any;
     if (selectedFile.size <= 10485760) {
 
-       
+       console.log(selectedFile);
       // small upload
       result = await sp.web.getFolderByServerRelativePath(documentLibraryName).files.addUsingPath(fileNamePath, selectedFile, { Overwrite: true });
-      console.log("url test",result.data.serverRelativeUrl)
+      console.log("url test",result)
+
+
+     
+
     } else {
       // large upload
       result = await sp.web.getFolderByServerRelativePath(documentLibraryName).files.addChunked(fileNamePath, selectedFile, data => {
@@ -49,8 +53,8 @@ const AddImage: React.FC<IFileUploadProps> = () => {
     }
 
     // console.log(`Result of file upload: ${JSON.stringify(result)}`);
-    // console.log("url test",result.data.ServerRelativeUrl)
-    const url = result.data.ServerRelativeUrl   
+    console.log("url test",result?.data?.ServerRelativeUrl)
+    const url = ` https://2mxff3.sharepoint.com/sites/Nidhin2/EmployeeLibrary/${emplyeeId}/profilepic.png`   
     const list = sp.web.lists.getByTitle("Employees");
    console.log(emplyeeId)
   list.items.getById(emplyeeId).update({

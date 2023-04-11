@@ -81,7 +81,7 @@ nav {
   box-shadow: 2px 2px 2px rgba(0,0,0,0.1);
 }
 
-.image {
+.image img {
   width: 60px;
   height: 60px;
   margin-right: 10px;
@@ -325,4 +325,40 @@ button:hover {
 .selected-file img {
   max-width: 100%;
   margin-top: 10px;
+}
+
+
+
+//profile handles
+
+.profileHandles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.update {
+  padding: 10px 15px;
+  background-color: #007bff;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 6px;
+  margin: 20px;
+}
+
+
+.delete {
+  padding: 10px 15px;
+  background-color: #ff4800;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 6px;
+  margin: 20px;
+
 }
