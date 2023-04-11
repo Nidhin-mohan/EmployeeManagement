@@ -70,7 +70,7 @@ const Profile: React.FC<IProfileProps> = () => {
   };
 
   const handleDocumentsClick = () => {
-    navigate(`/profile/documents`);
+    navigate(`/profile/documents/${id}`);
   };
 
   return (
