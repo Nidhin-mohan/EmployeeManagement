@@ -3,6 +3,7 @@ import Layout from './Layout/Layout';
 import { sp } from '../spAuth';
 // import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+import styles from '../Employmanagement.module.scss';
 
 
 interface Document {
@@ -10,6 +11,28 @@ interface Document {
   name: string;
   url: string;
 }
+
+
+
+const files = [
+  {
+    name: "Document 1",
+    url: "https://example.com/document-1.pdf"
+  },
+  {
+    name: "Document 2",
+    url: "https://example.com/document-2.docx"
+  },
+  {
+    name: "Image 1",
+    url: "https://example.com/image-1.jpg"
+  },
+  {
+    name: "Spreadsheet 1",
+    url: "https://example.com/spreadsheet-1.xlsx"
+  }
+];
+
 
 const Documents: React.FC = () => {
   const [documents] = React.useState<Document[]>([]);
@@ -61,10 +84,43 @@ const Documents: React.FC = () => {
   };
 
 
+  React.useEffect(()=> {
+
+  },[])
+
+
 
   return (
     <Layout>
       <h1>Documents</h1>
+
+
+
+
+       <div className={styles.docList}>
+      <h1>File List</h1>
+      <ul>
+        {files.map((file) => (
+          <li key={file.name}>
+            <span>{file.name}</span>
+            <button >Download</button>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
       <input type="file" onChange={handleFileSelect} />
       <button type="button" onClick={handleUploadClick}>
         Upload
