@@ -8,6 +8,7 @@ import Profile from './components/Profile';
 import AddImage from './components/AddImage';
 import SharePointImage from './Image';
 import Documents from './components/Documents';
+import UpdateEmployee from './components/UpdateEmployee';
 
 
 const App: React.FC = () => {
@@ -20,7 +21,7 @@ const App: React.FC = () => {
       <Route path="/profile/:id" element={<Profile />} />
       <Route path="/profile/documents/:id" element={<Documents />} />
       <Route path="/image" element={<SharePointImage />} />
-
+      <Route path="/update-emplyee/:id" element={<UpdateEmployee/>} />
     </Routes>
    </>
   )

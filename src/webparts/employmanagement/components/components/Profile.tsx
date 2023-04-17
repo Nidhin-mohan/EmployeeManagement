@@ -46,6 +46,15 @@ const Profile: React.FC<IProfileProps> = () => {
     }
   };
 
+  const handleUpdate = async (id: string) => {
+    
+
+      navigate(`/update-emplyee/${id}`);
+
+
+   
+  };
+
 
   React.useEffect(() => {
     // get a specific item by id.
@@ -63,7 +72,7 @@ const Profile: React.FC<IProfileProps> = () => {
       setImage_url(item.Image_url)
       console.log(image_url)
     })();
-  });
+  },[]);
 
   const handleProfileClick = () => {
     navigate(`/profile/${id}`);
@@ -88,7 +97,7 @@ const Profile: React.FC<IProfileProps> = () => {
         <div className={styles.left}>
           <img src={`${image_url}`} alt="Employee Picture" />
           <h1>{name}</h1>
-          <p>Email: {email}</p>
+          <p> {email}</p>
         </div>
         <div className={styles.right}>
           <div className={styles.infoSection}>
@@ -112,8 +121,8 @@ const Profile: React.FC<IProfileProps> = () => {
             <p>{dateOfBirth}</p>
           </div>
           <div className={styles.profileHandles}>
-             <button className={styles.update}  >Update</button>
-             <button className={styles.delete}  onClick={() => handleDelete(id)} >delete</button>
+             <button className={styles.update} onClick={() => handleUpdate(id)} >Update</button>
+             <button className={styles.delete}  onClick={() => handleDelete(id)} >Delete</button>
           </div>
         </div>
       </div>

@@ -43,7 +43,7 @@ const handleAddEmployeeClick = () => {
   </button>
 </div>
 
-      <div className={styles.cardList}>
+    <div className={styles.cardList}>
       {filteredEmployees.map((employee) => (
           <Card key={employee.id} employee={employee} />
         ))}
